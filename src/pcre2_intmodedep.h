@@ -579,7 +579,7 @@ typedef struct pcre2_real_match_context {
   pcre2_jit_callback jit_callback;
   void *jit_callback_data;
 #endif
-  int    (*callout)(pcre2_callout_block *, void *);
+  int    (__stdcall *callout)(pcre2_callout_block *, void *);
   void    *callout_data;
   PCRE2_SIZE offset_limit;
   uint32_t match_limit;
@@ -853,7 +853,7 @@ typedef struct dfa_match_block {
   PCRE2_UCHAR nl[4];              /* Newline string when fixed */
   uint16_t bsr_convention;        /* \R interpretation */
   void *callout_data;             /* To pass back to callouts */
-  int (*callout)(pcre2_callout_block *,void *);  /* Callout function or NULL */
+  int (__stdcall *callout)(pcre2_callout_block *,void *);  /* Callout function or NULL */
   dfa_recursion_info *recursive;  /* Linked list of recursion data */
 } dfa_match_block;
 

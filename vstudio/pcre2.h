@@ -444,7 +444,7 @@ PCRE2_EXP_DECL void PCRE2_CALL_CONVENTION \
   pcre2_match_context_free(pcre2_match_context *); \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_set_callout(pcre2_match_context *, \
-    int (*)(pcre2_callout_block *, void *), void *); \
+    int (__stdcall *)(pcre2_callout_block *, void *), void *); \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_set_match_limit(pcre2_match_context *, uint32_t); \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
@@ -477,7 +477,7 @@ PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_pattern_info(const pcre2_code *, uint32_t, void *); \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_callout_enumerate(const pcre2_code *, \
-    int (*)(pcre2_callout_enumerate_block *, void *), void *);
+    int (__stdcall *)(pcre2_callout_enumerate_block *, void *), void *);
 
 
 /* Functions for running a match and inspecting the result. */
